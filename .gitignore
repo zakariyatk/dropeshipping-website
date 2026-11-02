@@ -1,0 +1,7 @@
+.claude/
+__pycache__/
+.DS_Store
+Thumbs.db
+.env*
+!.env.example
+node_modules/
