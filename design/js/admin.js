@@ -68,11 +68,11 @@ function lineChart(data, h = 240) {
   const x = i => pad + i * (w - pad * 2) / (data.length - 1), y = v => h - pad - v / max * (h - pad * 2);
   const pts = data.map((v, i) => `${x(i)},${y(v)}`).join(' ');
   return `<svg viewBox="0 0 ${w} ${h}" class="w-full" preserveAspectRatio="none" role="img" aria-label="Revenue chart">
-    <defs><linearGradient id="lg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#7c3aed" stop-opacity=".25"/><stop offset="1" stop-color="#7c3aed" stop-opacity="0"/></linearGradient></defs>
+    <defs><linearGradient id="lg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#4c00a4" stop-opacity=".25"/><stop offset="1" stop-color="#4c00a4" stop-opacity="0"/></linearGradient></defs>
     ${[0, 1, 2, 3].map(i => `<line x1="${pad}" x2="${w - pad}" y1="${pad + i * (h - pad * 2) / 3}" y2="${pad + i * (h - pad * 2) / 3}" stroke="#f4f4f5"/>`).join('')}
     <polygon points="${x(0)},${h - pad} ${pts} ${x(data.length - 1)},${h - pad}" fill="url(#lg)"/>
-    <polyline points="${pts}" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-    ${data.map((v, i) => i % 5 === 4 ? `<circle cx="${x(i)}" cy="${y(v)}" r="3.5" fill="#fff" stroke="#7c3aed" stroke-width="2"><title>QAR ${num(v)}</title></circle>` : '').join('')}
+    <polyline points="${pts}" fill="none" stroke="#4c00a4" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    ${data.map((v, i) => i % 5 === 4 ? `<circle cx="${x(i)}" cy="${y(v)}" r="3.5" fill="#fff" stroke="#4c00a4" stroke-width="2"><title>QAR ${num(v)}</title></circle>` : '').join('')}
     ${data.map((_, i) => i % 5 === 0 ? `<text x="${x(i)}" y="${h - 8}" font-size="10" fill="#a1a1aa" text-anchor="middle">${i + 1} Oct</text>` : '').join('')}
   </svg>`;
 }
